@@ -1,5 +1,5 @@
-import { Node } from '../../implementation/linked-list-node';
-import SinglyLinkedList from '../../implementation/singly-linked-list';
+import { Node } from '../../implementation/linked-list-node.object-oriented';
+import SinglyLinkedList from '../../implementation/singly-linked-list.object-oriented';
 
 export default class SinglyLinkedListWithReverseMethod<
   T,

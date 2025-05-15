@@ -1,4 +1,4 @@
-import SinglyLinkedList from './singly-linked-list';
+import SinglyLinkedList from './singly-linked-list.object-oriented';
 
 describe('singly linked list', () => {
   let linkedList = new SinglyLinkedList<string>();

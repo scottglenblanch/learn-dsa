@@ -1,5 +1,5 @@
-import SinglyLinkedList from '../../implementation/singly-linked-list';
-import { ComparatorFunction, mergeLinkedLists } from './merge-linked-lists';
+import SinglyLinkedList from '../../implementation/singly-linked-list.object-oriented';
+import { ComparatorFunction, mergeLinkedLists } from './merge-linked-lists.object-oriented';
 
 describe('merge linked lists', () => {
   it('both linked lists as null', () => {

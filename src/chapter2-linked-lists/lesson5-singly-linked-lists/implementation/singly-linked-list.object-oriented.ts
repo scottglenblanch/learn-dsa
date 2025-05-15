@@ -1,4 +1,4 @@
-import { Node } from './linked-list-node';
+import { Node } from './linked-list-node.object-oriented';
 
 export default class SinglyLinkedList<T> {
   protected frontSentinel = new Node<T>();
