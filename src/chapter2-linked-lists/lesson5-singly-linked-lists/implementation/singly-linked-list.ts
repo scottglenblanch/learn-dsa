@@ -1,5 +1,7 @@
+import { Node } from "./linked-list-node";
+
 export default class SinglyLinkedList<T> {
-  private frontSentinel = new Node<T>();
+  protected frontSentinel = new Node<T>();
   private _length = 0;
 
   get head() {
@@ -11,12 +13,13 @@ export default class SinglyLinkedList<T> {
   }
 
   public addToFront(item: T): void {
-    const previousHead = this.head;
+    const formerHead = this.head;
     const newHead = new Node(item);
 
-    this._length += 1;
+    this.frontSentinel.next = newHead;
+    newHead.next = formerHead;
 
-    this.connect(this.frontSentinel, newHead, previousHead);
+    this._length += 1;
   }
 
   public peek(): T | null {
@@ -24,14 +27,14 @@ export default class SinglyLinkedList<T> {
   }
 
   public popFromFront(): T | null {
-    const previousHead = this.head;
-    const newHead = this.head?.next ?? null;
+    const formerHead = this.head;
+    const newHead = formerHead?.next ?? null;
+
+    this.frontSentinel.next = newHead;
 
     this._length -= 1;
 
-    this.connect(this.frontSentinel, newHead);
-
-    return previousHead?.value ?? null;
+    return formerHead?.value ?? null;
   }
 
   public toString(): string {
@@ -47,24 +50,7 @@ export default class SinglyLinkedList<T> {
     return message;
   }
 
-  private connect(...nodes: (Node<T> | null)[]) {
-    const validNodes = nodes.filter(node => !!node);
 
-    for (let i = 0; i < validNodes.length - 1; i++) {
-      const curNode = validNodes[i];
-      const nextNode = validNodes[i + 1];
-
-      curNode.next = nextNode;
-    }
-  }
 }
 
-class Node<T> {
-  public next: Node<T> | null = null;
 
-  constructor(public readonly value?: T) {}
-
-  public toString(): string {
-    return String(this.value);
-  }
-}
