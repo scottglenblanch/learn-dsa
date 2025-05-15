@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "test": "./node_modules/.bin/jest",
+    "format": "./node_modules/.bin/eslint . --fix && ./node_modules/.bin/prettier . --write"
+  },
   "devDependencies": {
     "@babel/core": "^7.27.1",
     "@babel/preset-env": "^7.27.2",
