@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "test": "./node_modules/.bin/jest",
-    "format": "./node_modules/.bin/eslint . --fix && ./node_modules/.bin/prettier . --write"
+    "format": "./node_modules/.bin/prettier . --write && ./node_modules/.bin/eslint . --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.27.1",

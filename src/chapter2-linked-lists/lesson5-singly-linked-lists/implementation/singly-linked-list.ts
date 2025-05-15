@@ -1,4 +1,4 @@
-import { Node } from "./linked-list-node";
+import { Node } from './linked-list-node';
 
 export default class SinglyLinkedList<T> {
   protected frontSentinel = new Node<T>();
@@ -49,8 +49,4 @@ export default class SinglyLinkedList<T> {
 
     return message;
   }
-
-
 }
-
-

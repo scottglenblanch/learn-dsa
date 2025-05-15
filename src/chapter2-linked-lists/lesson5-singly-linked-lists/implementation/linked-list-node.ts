@@ -1,9 +1,9 @@
 export class Node<T> {
-    public next: Node<T> | null = null;
+  public next: Node<T> | null = null;
 
-    constructor(public readonly value?: T) { }
+  constructor(public readonly value?: T) {}
 
-    public toString(): string {
-        return String(this.value);
-    }
+  public toString(): string {
+    return String(this.value);
+  }
 }
