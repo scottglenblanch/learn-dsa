@@ -1,4 +1,4 @@
-import SinglyLinkedListWithReverseMethod from './reverse-linked-list';
+import SinglyLinkedListWithReverseMethod from './reverse-linked-list.object-oriented';
 
 describe('reverse linked list', () => {
   let linkedList = new SinglyLinkedListWithReverseMethod<string>();

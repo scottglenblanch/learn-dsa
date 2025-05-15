@@ -1,5 +1,8 @@
 import SinglyLinkedList from '../../implementation/singly-linked-list.object-oriented';
-import { ComparatorFunction, mergeLinkedLists } from './merge-linked-lists.object-oriented';
+import {
+  ComparatorFunction,
+  mergeLinkedLists,
+} from './merge-linked-lists.object-oriented';
 
 describe('merge linked lists', () => {
   it('both linked lists as null', () => {
@@ -52,9 +55,9 @@ describe('merge linked lists', () => {
   });
 
   it('combines lists', () => {
-    const list1 = new SinglyLinkedList<string>()
-    const list2 = new SinglyLinkedList<string>()
-    const alphabetLength = 'z'.charCodeAt(0) - 'a'.charCodeAt(0) + 1
+    const list1 = new SinglyLinkedList<string>();
+    const list2 = new SinglyLinkedList<string>();
+    const alphabetLength = 'z'.charCodeAt(0) - 'a'.charCodeAt(0) + 1;
     const compareFunction: ComparatorFunction<string> = (char1, char2) => {
       if (char1 === null && char2 === null) return 0;
       else if (char1 === null) return -1;
@@ -64,18 +67,22 @@ describe('merge linked lists', () => {
     };
 
     const expected = Array.from({ length: alphabetLength })
-        .fill(null)
-        .reduce((accum, o, index) => `${accum}${String.fromCharCode('a'.charCodeAt(0) + index)}`, '')
+      .fill(null)
+      .reduce(
+        (accum, o, index) =>
+          `${accum}${String.fromCharCode('a'.charCodeAt(0) + index)}`,
+        ''
+      );
 
-    for(let i = 0; i < alphabetLength; i++) {
-        const listToUse = i % 2 === 0 ? list1 : list2
-        const char = String.fromCharCode('z'.charCodeAt(0) - i)
+    for (let i = 0; i < alphabetLength; i++) {
+      const listToUse = i % 2 === 0 ? list1 : list2;
+      const char = String.fromCharCode('z'.charCodeAt(0) - i);
 
-        listToUse.addToFront(char)
+      listToUse.addToFront(char);
     }
 
-
-    expect(mergeLinkedLists(list1, list2, compareFunction)?.toString()).toBe(expected)
-
-  })
+    expect(mergeLinkedLists(list1, list2, compareFunction)?.toString()).toBe(
+      expected
+    );
+  });
 });

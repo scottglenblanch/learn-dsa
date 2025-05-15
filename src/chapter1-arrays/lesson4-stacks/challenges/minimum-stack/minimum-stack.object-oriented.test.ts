@@ -1,4 +1,4 @@
-import MinimumStack from './minimum-stack';
+import MinimumStack from './minimum-stack.object-oriented';
 
 describe('minimum-stack', () => {
   let minStack = new MinimumStack();

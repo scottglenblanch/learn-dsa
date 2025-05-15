@@ -1,4 +1,4 @@
-import isValidParentheses from './valid-parentheses';
+import isValidParentheses from './valid-parentheses.object-oriented';
 
 describe('valid parentheses', () => {
   const opening = ['(', '[', '{'];
