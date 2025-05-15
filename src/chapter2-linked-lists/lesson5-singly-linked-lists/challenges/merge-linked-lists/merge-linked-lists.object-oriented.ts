@@ -15,25 +15,24 @@ export function mergeLinkedLists<T>(
   const copyList2 = copyList(list2);
   const newList = new SinglyLinkedList<T>();
 
-  let val1 = copyList1.popFromFront()
+  let val1 = copyList1.popFromFront();
   let val2 = copyList2.popFromFront();
 
-  while(val1 !== null || val2 !== null) {
-    const isUseVal1 = val1 !== null && compareFunction(val1, val2) > 0
-    const isUseVal2 = val2 !== null && !isUseVal1
-    
+  while (val1 !== null || val2 !== null) {
+    const isUseVal1 = val1 !== null && compareFunction(val1, val2) > 0;
+    const isUseVal2 = val2 !== null && !isUseVal1;
+
     if (isUseVal1) {
-      newList.addToFront(val1 as T)
-      
-      val1 = copyList1.popFromFront()
+      newList.addToFront(val1 as T);
+
+      val1 = copyList1.popFromFront();
     } else if (isUseVal2) {
-      newList.addToFront(val2 as T)
+      newList.addToFront(val2 as T);
 
-      val2 = copyList2.popFromFront()
+      val2 = copyList2.popFromFront();
     } else {
-      throw 'issue with logic'
+      throw 'issue with logic';
     }
-
   }
 
   return newList;
@@ -41,16 +40,16 @@ export function mergeLinkedLists<T>(
 
 function copyList<T>(linkedList: SinglyLinkedList<T>) {
   const arrayList = [];
-  const copy = new SinglyLinkedList<T>()
+  const copy = new SinglyLinkedList<T>();
 
-  while(linkedList.length > 0) {
-    arrayList.push(linkedList.popFromFront() as T)
+  while (linkedList.length > 0) {
+    arrayList.push(linkedList.popFromFront() as T);
   }
 
   arrayList.forEach((item: T) => {
-    linkedList.addToFront(item)
-    copy.addToFront(item)
-  })
+    linkedList.addToFront(item);
+    copy.addToFront(item);
+  });
 
-  return copy
+  return copy;
 }

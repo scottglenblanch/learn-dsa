@@ -1,4 +1,4 @@
-import Stack from './stack';
+import Stack from './stack.object-oriented';
 
 describe('stack', () => {
   let stack: Stack<string> = new Stack<string>();

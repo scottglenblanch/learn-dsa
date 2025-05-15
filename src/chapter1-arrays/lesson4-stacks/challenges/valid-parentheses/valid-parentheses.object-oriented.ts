@@ -1,4 +1,4 @@
-import Stack from '../../implementation/stack';
+import Stack from '../../implementation/stack.object-oriented';
 
 const pairs: { [key: string]: string } = {
   '(': ')',
