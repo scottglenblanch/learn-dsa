@@ -12,19 +12,38 @@ const closingChars = new Set<string>(Object.values(pairs));
 export default function isValidParentheses(str: string) {
   const stack = new Stack<string>();
 
-  let isValid = str.length > 1;
+ 
   for (const char of str) {
-    const isOpeningChar = openingChars.has(char);
-    const isClosingChar = closingChars.has(char);
 
-    if (isOpeningChar) stack.push(char);
+    if (isOpeningCharChase(char)) {
+      handleOpeningCharCase(char, stack);
+    }
+    else if (isValidClosingCharCase(char, stack)) {
+      handleValidClosingCharChase(stack) 
+    }
+    else {
+      return false;
+    }
 
-    if (isClosingChar) isValid = isMatch(stack.pop() ?? '', char);
-
-    if (!isValid) break;
   }
 
-  return isValid;
+  return stack.length === 0;
+}
+
+function isOpeningCharChase(char: string) {
+  return openingChars.has(char);
+}
+
+function isValidClosingCharCase(char: string, stack: Stack<string>) {
+  return closingChars.has(char) && isMatch(stack.peek() ?? '', char)
+}
+
+function handleOpeningCharCase(char: string, stack: Stack<string>) {
+  stack.push(char);
+}
+
+function handleValidClosingCharChase(stack: Stack<string>) {
+  stack.pop()
 }
 
 function isMatch(char1: string, char2: string) {
