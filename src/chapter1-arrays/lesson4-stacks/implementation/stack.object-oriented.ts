@@ -6,7 +6,7 @@ export default class Stack<T> {
   }
 
   peek(): T | null {
-    return this.items?.[0] ?? null
+    return this.items?.[0] ?? null;
   }
 
   push(item: T) {
