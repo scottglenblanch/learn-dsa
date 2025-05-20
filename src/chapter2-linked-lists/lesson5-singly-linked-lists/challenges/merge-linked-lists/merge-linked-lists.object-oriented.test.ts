@@ -1,4 +1,4 @@
-import SinglyLinkedList from '../../implementation/singly-linked-list.object-oriented';
+import { SinglyLinkedList } from '../../implementation/singly-linked-list.object-oriented';
 import {
   ComparatorFunction,
   mergeLinkedLists,

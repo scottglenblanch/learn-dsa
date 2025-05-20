@@ -46,7 +46,7 @@ function handleBaseCase({
   index: number;
 }) {
   const hasCompletedTheLoop = index === input.length;
-  const noLonelyCharacters = stack.length === 0
+  const noLonelyCharacters = stack.length === 0;
 
   return hasCompletedTheLoop && noLonelyCharacters;
 }

@@ -1,4 +1,4 @@
-import SinglyLinkedList from '../../implementation/singly-linked-list.object-oriented';
+import { SinglyLinkedList } from '../../implementation/singly-linked-list.object-oriented';
 
 export type ComparatorFunction<T> = (a: T | null, b: T | null) => number;
 
