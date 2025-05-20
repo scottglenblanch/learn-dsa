@@ -1,6 +1,14 @@
-import { Node } from './linked-list-node.object-oriented';
+export class Node<T> {
+  public next: Node<T> | null = null;
 
-export default class SinglyLinkedList<T> {
+  constructor(public readonly value?: T) {}
+
+  public toString(): string {
+    return String(this.value);
+  }
+}
+
+export class SinglyLinkedList<T> {
   protected frontSentinel = new Node<T>();
   private _length = 0;
 
