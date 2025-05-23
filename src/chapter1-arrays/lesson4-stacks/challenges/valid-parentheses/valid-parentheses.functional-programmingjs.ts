@@ -1,7 +1,7 @@
 // function to check the users input
 function isValid(s: string) {
   const stack = []; //creating an empty array
-  const closeToOpen: {[key: string]: string} = {
+  const closeToOpen: { [key: string]: string } = {
     //array of strings keys and values
     ')': '(',
     ']': '[',
