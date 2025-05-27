@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "outDir": "./visualization/dist",
+    "rootDir": ".",
+    "strict": true,
+    "moduleResolution": "bundler",
+    "esModuleInterop": true
+  },
+  "include": ["./**/binary-tree.ts"]
+}
