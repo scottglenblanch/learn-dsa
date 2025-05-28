@@ -1,6 +1,11 @@
-import { BinaryTree } from './dist/implementation/binary-tree.js';
+import { BinaryTree, BinaryTreeNode } from '../../implementation/binary-tree';
 
-const binaryTree = new BinaryTree(function (a, b) {
+type BinaryTreeNodeWithCalculations = BinaryTreeNode<number> & {
+  level: number;
+  index: number;
+}
+
+const binaryTree = new BinaryTree<number>(function (a, b) {
   return a - b;
 });
 
@@ -18,14 +23,14 @@ function initBinaryTreeData() {
 }
 
 const getNodesList = () => {
-  let list = [];
-  let queue = [{ ...binaryTree.root, level: 0, index: 0 }];
+  let list: BinaryTreeNodeWithCalculations[] = [];
+  let queue: BinaryTreeNodeWithCalculations[] = binaryTree.root ? [{ ...binaryTree.root, level: 0, index: 0 }] : [];
 
   while (queue.length > 0) {
     const node = queue[0];
     const { index, level } = node;
 
-    const childrenToAdd = [node.left, node.right]
+    const childrenToAdd: BinaryTreeNodeWithCalculations[] = [node.left, node.right]
       .map((child, i) =>
         child
           ? {
@@ -35,7 +40,7 @@ const getNodesList = () => {
             }
           : null
       )
-      .filter(child => child); // Remove null/undefined children
+      .filter(child => child) as BinaryTreeNodeWithCalculations[]; // Remove null/undefined children
 
     list.push(node);
 
@@ -48,10 +53,10 @@ const getNodesList = () => {
 };
 
 const displayBinaryTree = () => {
-  const getLastIndexOfLevel = level => Math.pow(2, level + 1) - 2;
+  const getLastIndexOfLevel = (level: number) => Math.pow(2, level + 1) - 2;
 
-  function getElementForDisplay() {
-    return document.querySelector('.display-binary-tree');
+  function getElementForDisplay(): HTMLElement {
+    return document.querySelector('.display-binary-tree') as HTMLElement;
   }
 
   function getHtml() {
@@ -59,7 +64,7 @@ const displayBinaryTree = () => {
     const maxLevel = nodesList[nodesList.length - 1].level;
     const lastIndexAtMaxLevel = getLastIndexOfLevel(maxLevel);
 
-    const nodesMap = nodesList.reduce(
+    const nodesMap: { [key: number]: BinaryTreeNode<number>} = nodesList.reduce(
       (accum, node) => ({
         ...accum,
         [node.index]: node,
@@ -93,8 +98,12 @@ const displayBinaryTree = () => {
 };
 
 function addButtonEventListener() {
-  document.querySelector('button').addEventListener('click', function () {
-    const numberToAdd = Number(document.querySelector('input').value) || 0;
+
+  const buttonElement = document.querySelector('button') as HTMLButtonElement;
+
+  buttonElement.addEventListener('click', function () {
+    const inputElement = document.querySelector('input') as HTMLInputElement;
+    const numberToAdd = Number(inputElement.value) || 0;
 
     binaryTree.add(numberToAdd);
     displayBinaryTree();
