@@ -1,26 +1,31 @@
 {
-    "configurations": [
-        {
-            "command": "yarn run test",
-            "name": "Run tests",
-            "request": "launch",
-            "type": "node-terminal"
-        }, {
-            "command": "yarn run chapter6:visualize:bundle-to-dist",
-            "name": "Run Chapter 6 Bundle to Distribution",
-            "request": "launch",
-            "type": "node-terminal"
-        }, {
-            "command": "yarn run chapter6:visualize:run-server",
-            "name": "Run Chapter 6 Visualization Server",
-            "request": "launch",
-            "type": "node-terminal"
-        },
-    ],
-    "compounds": [
-        {
-            "name": "Chapter 6 Visualization",
-            "configurations": ["Run Chapter 6 Bundle to Distribution", "Run Chapter 6 Visualization Server"]
-        }
-    ]
+  "configurations": [
+    {
+      "command": "yarn run test",
+      "name": "Run tests",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
+      "command": "yarn run chapter6:visualize:bundle-to-dist",
+      "name": "Run Chapter 6 Bundle to Distribution",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
+      "command": "yarn run chapter6:visualize:run-server",
+      "name": "Run Chapter 6 Visualization Server",
+      "request": "launch",
+      "type": "node-terminal"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Chapter 6 Visualization",
+      "configurations": [
+        "Run Chapter 6 Bundle to Distribution",
+        "Run Chapter 6 Visualization Server"
+      ]
+    }
+  ]
 }

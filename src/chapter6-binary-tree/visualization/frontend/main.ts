@@ -1,11 +1,14 @@
-import { BinaryTree, BinaryTreeNode } from '../../implementation/binary-tree';
+import {
+  BinarySearchTree,
+  BinarySearchTreeNode,
+} from '../../implementation/binary-search-tree';
 
-type BinaryTreeNodeWithCalculations = BinaryTreeNode<number> & {
+type BinaryTreeNodeWithCalculations = BinarySearchTreeNode<number> & {
   level: number;
   index: number;
-}
+};
 
-const binaryTree = new BinaryTree<number>(function (a, b) {
+const binaryTree = new BinarySearchTree<number>(function (a, b) {
   return a - b;
 });
 
@@ -24,13 +27,18 @@ function initBinaryTreeData() {
 
 const getNodesList = () => {
   let list: BinaryTreeNodeWithCalculations[] = [];
-  let queue: BinaryTreeNodeWithCalculations[] = binaryTree.root ? [{ ...binaryTree.root, level: 0, index: 0 }] : [];
+  let queue: BinaryTreeNodeWithCalculations[] = binaryTree.root
+    ? [{ ...binaryTree.root, level: 0, index: 0 }]
+    : [];
 
   while (queue.length > 0) {
     const node = queue[0];
     const { index, level } = node;
 
-    const childrenToAdd: BinaryTreeNodeWithCalculations[] = [node.left, node.right]
+    const childrenToAdd: BinaryTreeNodeWithCalculations[] = [
+      node.left,
+      node.right,
+    ]
       .map((child, i) =>
         child
           ? {
@@ -64,13 +72,14 @@ const displayBinaryTree = () => {
     const maxLevel = nodesList[nodesList.length - 1].level;
     const lastIndexAtMaxLevel = getLastIndexOfLevel(maxLevel);
 
-    const nodesMap: { [key: number]: BinaryTreeNode<number>} = nodesList.reduce(
-      (accum, node) => ({
-        ...accum,
-        [node.index]: node,
-      }),
-      {}
-    );
+    const nodesMap: { [key: number]: BinarySearchTreeNode<number> } =
+      nodesList.reduce(
+        (accum, node) => ({
+          ...accum,
+          [node.index]: node,
+        }),
+        {}
+      );
 
     const indexToValueList = [];
     for (let i = 0; i <= lastIndexAtMaxLevel; i++) {
@@ -98,7 +107,6 @@ const displayBinaryTree = () => {
 };
 
 function addButtonEventListener() {
-
   const buttonElement = document.querySelector('button') as HTMLButtonElement;
 
   buttonElement.addEventListener('click', function () {
