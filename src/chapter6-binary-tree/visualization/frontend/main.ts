@@ -106,8 +106,10 @@ const displayBinaryTree = () => {
   element.innerHTML = getHtml();
 };
 
-function addButtonEventListener() {
-  const buttonElement = document.querySelector('button') as HTMLButtonElement;
+function bindAddNumberButtonEventListener() {
+  const buttonElement = document.querySelector(
+    '.add-number'
+  ) as HTMLButtonElement;
 
   buttonElement.addEventListener('click', function () {
     const inputElement = document.querySelector('input') as HTMLInputElement;
@@ -118,6 +120,21 @@ function addButtonEventListener() {
   });
 }
 
-addButtonEventListener();
+function bindRemoveNumberButtonEventListener() {
+  const buttonElement = document.querySelector(
+    '.remove-number'
+  ) as HTMLButtonElement;
+
+  buttonElement.addEventListener('click', function () {
+    const inputElement = document.querySelector('input') as HTMLInputElement;
+    const numberToRemove = Number(inputElement.value) || 0;
+
+    binaryTree.remove(numberToRemove);
+    displayBinaryTree();
+  });
+}
+
+bindAddNumberButtonEventListener();
+bindRemoveNumberButtonEventListener();
 initBinaryTreeData();
 displayBinaryTree();
