@@ -5,11 +5,16 @@ class BinarySearchNumbers extends BinarySearch<number> {
     super(0, list.length - 1);
   }
 
+  public compare(val: number, midValue: number): number {
+    return val - midValue;
+  }
+
   public getValueAtIndex(index: number): number {
     return this.list[index];
   }
-  public compare(a: number, b: number): number {
-    return a - b;
+
+  public isFound(index: number, val: number): boolean {
+    return this.list[index] === val;
   }
 }
 
@@ -24,7 +29,9 @@ describe('binary search', () => {
 
     it('should have numbers 0 through and including 9', () => {
       for (let i = 0; i <= 9; i++) {
-        expect(binarySearchNumbers.indexOf(i)).toBe(i);
+        const result = binarySearchNumbers.indexOf(i);
+
+        expect(result).toBe(i);
       }
     });
 
