@@ -8,4 +8,4 @@ Run visualization webapp
 
 3 - `yarn run chapter6:visualize:run-server`
 
-Note: Commands #2 and #3 will need to be ran in separate terminals
+Note: Commands #2 and #3 will need to be run in separate terminals

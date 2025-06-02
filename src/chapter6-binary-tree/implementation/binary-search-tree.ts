@@ -71,9 +71,9 @@ export class BinarySearchTree<T> {
     node: BinarySearchTreeNode<T> | null,
     val: T
   ): BinarySearchTreeNode<T> | null {
-    const isDone = node === null || node.val === val;
-    const isGoLeft = node && val < node.val;
-    const isGoRight = node && val > node.val;
+    const isDone = node === null || this.comparator(val, node.val) === 0;
+    const isGoLeft = node && this.comparator(val, node.val) < 0;
+    const isGoRight = node && this.comparator(val, node.val) > 0;
 
     const leftChild = node?.left ?? null;
     const rightChild = node?.right ?? null;
@@ -92,9 +92,9 @@ export class BinarySearchTree<T> {
     const rightChild = node?.right ?? null;
 
     const isNotDelete = node === null;
-    const isGoLeft = node && val < node.val;
-    const isGoRight = node && val > node.val;
     const isDelete = node && node.val === val;
+    const isGoLeft = node && this.comparator(val, node.val) < 0;
+    const isGoRight = node && this.comparator(val, node.val) > 0;
 
     const isDeleteWhenNoRightChild = isDelete && rightChild === null;
     const isDeleteWithRightChild = isDelete && Boolean(rightChild);
