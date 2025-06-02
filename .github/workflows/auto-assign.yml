@@ -1,13 +1,13 @@
-name: Auto Assign PR Author
+name: Auto Assign PR Reviewers
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, reopened]
 permissions:
   pull-requests: write
 jobs:
-  assign-author:
+  assign-reviewers:
     runs-on: ubuntu-latest
     steps:
-      - uses: toshimaru/auto-author-assign@v2.1.1
+      - uses: kentaro-m/auto-assign-action@v1.2.5
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          addReviewers: author
