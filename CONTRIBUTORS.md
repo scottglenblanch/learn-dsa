@@ -1,4 +1,3 @@
-
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -10,6 +9,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Nr1cha"><img src="https://avatars.githubusercontent.com/u/27788461?v=4?s=100" width="100px;" alt="Nick Richards"/><br /><sub><b>Nick Richards</b></sub></a><br /><a href="https://github.com/scottglenblanch/learn-dsa/commits?author=Nr1cha" title="Code">💻</a> <a href="https://github.com/scottglenblanch/learn-dsa/commits?author=Nr1cha" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/scottglenblanch"><img src="https://avatars.githubusercontent.com/u/1906829?v=4?s=100" width="100px;" alt="Scott Glen Blanch"/><br /><sub><b>Scott Glen Blanch</b></sub></a><br /><a href="https://github.com/scottglenblanch/learn-dsa/commits?author=scottglenblanch" title="Code">💻</a> <a href="https://github.com/scottglenblanch/learn-dsa/commits?author=scottglenblanch" title="Documentation">📖</a></td>
     </tr>
   </tbody>
   <tfoot>
